@@ -11,7 +11,6 @@ function moreThanFiveLateDriveries(dvr){
 ///////////////////パターンB///////////////////////
 function reportLines(aCustomer){
     const lines = [];
-    lines.push(["name",aCustomer.name]);
     gatherCustomer(lines, aCustomer);
     return lines;
 }
