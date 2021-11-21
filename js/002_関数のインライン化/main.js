@@ -1,22 +1,14 @@
 //////////////////////パターンA/////////////////
 function rating(aDriver){
-    return moreThanFiveLateDriveries(aDriver) ? 2 : 1;
-}
-
-function moreThanFiveLateDriveries(dvr){
-    return dvr.numberOfLateDelivers > 5;
+    return aDriver.numberOfLateDelivers > 5 ? 2 : 1;
 }
 //////////////////////////////////////////////////
 
 ///////////////////パターンB///////////////////////
 function reportLines(aCustomer){
     const lines = [];
-    gatherCustomer(lines, aCustomer);
-    return lines;
-}
-
-function gatherCustomer(out, aCustomer){
     out.push(["name",aCustomer.name]);
     out.push(["location",aCustomer.location]);
+    return lines;
 }
 //////////////////////////////////////////////////
