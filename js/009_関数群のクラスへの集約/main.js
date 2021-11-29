@@ -1,24 +1,40 @@
-//計測値
+class Reading {
+    constructor(data){
+        this._customer = data.customer;
+        this._quantity = data.quantity;
+        this._month = data.month;
+        this._year = data.year;
+    }
+
+    get customer(){return this._customer;}
+    get quantity(){return this._quantity;}
+    get month(){return this._month;}
+    get year(){return this._year;}
+
+    get baseCharge(){
+        return baseRate(this.month, this.year) * this.quantity;
+    }
+    get taxableChargeFn(aReading){
+        return Math.max(0, aReading.baseCharge - taxThreshold(aReading.year));
+    }
+}
 var reading = {
     customer: "ivan"
    ,quantity: 10
    ,month: 5
    ,year: 2017
 }
-
 //①基本料金の計算
-const aReading_1 = acquireReading();
-const baseCharge_1 = baseRate(aReading_1.month, aReading_1.year) * aReading_1.quantity;
+const rowReading_1 = acquireReading();
+const aReading_1 = new Reading(rowReading_1);
+const baseCharge_1 = aReading_1.baseCharge;
 
 //②税金を科す場合
-const aReading_2 = acquireReading();
-const baseCharge_2 = baseRate(aReading_2.month, aReading_2.year) * aReading_2.quantity;
-const taxableCharge = Math.max(0, base - taxThreshold(aReading_2.year));
+const rowReading_2 = acquireReading();
+const aReading_2 = new Reading(rowReading_2);
+const taxableCharge = taxableChargeFn(aReading_2);
 
 //①、②以外のコード
-const aReading_3 = acquireReading();
-const basicChargeAmount = calculateBaseCharge(aReading_3);
-function calculateBaseCharge(aReading){
-    return baseRate(aReading.month, aReading.year) * aReading.quantity;
-}
-
+const rowReading_3 = acquireReading();
+const aReading_3 = new Reading(rowReading_3);
+const basicChargeAmount = aReading_3.baseCharge;
