@@ -1,3 +1,10 @@
+class NumberRange{
+    constructor(min, max){
+        this._data = {Min: min, Max: max};
+    }
+    get Min() {return this._data.Min;}
+    get Max() {return this._data.Max}
+}
 
 const station 
 = { name: "ZB1",
@@ -10,7 +17,7 @@ const station
       ]
 };
 
-function readingsOutsideRange(station, min, max){
+function readingsOutsideRange(station, min, max, range){
     return station.readings
     .filter(r => r.temp < min || r.temp > max);
 }
@@ -25,4 +32,5 @@ alerts = readingsOutsideRange(
     station
     ,operation.temperatureFloor
     ,operation.temperatureCeiling
+    ,null
 );
