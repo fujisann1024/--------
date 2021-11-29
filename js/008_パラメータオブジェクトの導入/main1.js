@@ -4,6 +4,8 @@ class NumberRange{
     }
     get Min() {return this._data.Min;}
     get Max() {return this._data.Max}
+    //範囲内であるかどうか
+    contains(args) {return (arg >= this.Min && args <= this.Max);}
 }
 
 const station 
@@ -17,9 +19,9 @@ const station
       ]
 };
 
-function readingsOutsideRange(station, min, max, range){
+function readingsOutsideRange(station, range){
     return station.readings
-    .filter(r => r.temp < min || r.temp > max);
+    .filter(r => !range.contains(r.temp));
 }
 
 //呼び出し側//
@@ -28,9 +30,10 @@ var operation = {
     temperatureCeiling: 55
 }
 
+const range = new NumberRange(
+    operation.temperatureFloor
+   ,operation.temperatureCeiling)
 alerts = readingsOutsideRange(
     station
-    ,operation.temperatureFloor
-    ,operation.temperatureCeiling
-    ,null
+   ,range
 );
