@@ -1,3 +1,4 @@
+
 const station 
 = { name: "ZB1",
   readings: [
@@ -9,13 +10,6 @@ const station
       ]
 };
 
-/**
- * 範囲外の測定結果を検出する関数
- * @param {*} station 
- * @param {*} min 
- * @param {*} max 
- * @returns 
- */
 function readingsOutsideRange(station, min, max){
     return station.readings
     .filter(r => r.temp < min || r.temp > max);
