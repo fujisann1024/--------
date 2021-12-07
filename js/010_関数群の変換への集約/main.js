@@ -1,19 +1,29 @@
 var reading = {customer: "ivan", quantity: 10, month: 5, year: 2017};
 
 //呼び出し側1
-const aReading = acquireReading(); //基本料金
-const baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity;
+const rawReading = acquireReading(); //基本料金
+const aReading = enrichReading(rawReading);
+const basicChargeAmount = aReading.baseCharge;
 
 //呼び出し側2
-const aReading = acquireReading();
-const base = baseRate(aReading.month, aReading.year) * aReading.quantity;
-const taxbleCharge = Math.max(0, base - taxThreshold(aReading.year));
+const rawReading = acquireReading();
+const aReading = enrichReading(rawReading);
+const taxbleCharge = aReading.taxbleCharge;
 
 //呼び出し側3
-const aReading = acquireReading();
-const basicChargeAmount = calculateBaseCharge(aReading);
+const rawReading = acquireReading();
+const aReading = enrichReading(rawReading);
+const basicChargeAmount = aReading.baseCharge;
 
 function calculateBaseCharge(aReading){
     return baseRate(aReading.month, aReading.year) * aReading.quantity;
 
+}
+
+//引数で受け取ったデータのコピーを返す
+function enrichReading(original){
+    const result = _.cloneDeep(original);
+    result.baseCharge = calculateBaseCharge(aReading);
+    result.taxbleCharge = Math.max(0, aReading.baseCharge - taxThreshold(aReading.year));
+    return result;
 }
