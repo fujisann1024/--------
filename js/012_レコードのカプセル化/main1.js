@@ -14,8 +14,11 @@ function getOrgnaization(){return orgnaization;}
 
 class Orgnaization{
     constructor(data){
-        this._data = data;
+        this._name = data.name;
+        this._country = data.country;
     }
-    get name(){return this._data.name;}
-    set name(aString) {return this._data.name = aString;}
+    get name(){return this._name;}
+    set name(aString) {return this._name = aString;}
+    get country(){return this.country;}
+    set country(aCountryCode){this._country = aCountryCode;}
 }
