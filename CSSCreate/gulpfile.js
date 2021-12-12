@@ -1,9 +1,12 @@
-var gulp = require("gulp");
-var sass = require('gulp-sass')(require("sass"));
+const {src, dest, series} = require("gulp");
+var sass = require('gulp-sass')
 
-//タスクの登録
-gulp.task("default",function(){
-    gulp.src("sass/**/*.scss")             //呼び込むファイル以下のファイル
-    .pipe(sass({outputStyle: 'expanded'})) //呼び込んだファイルに行う処理を記述
-    .pipe(gulp.dest("./css"))               //srcで取得したファイルに処理を記述
-})
+// Sassのコンパイル処理
+const sass_compile = function(){
+    return src('css/scss/**/*.scss')
+      .pipe(sass({ outputStyle: 'expanded' }))
+      .pipe(dest('css'))
+}
+
+// タスクを実行する
+exports.default = series(sass_compile);
