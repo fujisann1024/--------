@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        /*わかりやすく色づけ*/
+        #main{
+            margin: 10px;
+            padding: 10px;
+          background-color: aquamarine;  
+        }
+
+        /*Block*/
+        .search{
+            margin: 10px;
+            border: 1px solid black;
+            padding: 10px;
+            background-color: pink;
+        }
+
+        /*Element*/
+        .search__form{
+            margin: 10px;
+            border: 1px solid black;
+            padding: 10px;
+            background-color: yellow;
+        }
+        .search__input{
+            margin: 10px;
+            border: 1px solid black ;
+            padding: 10px;
+            background-color: blue;
+        }
+        .search__button{
+            margin: 10px;
+            border: 1px solid black;
+            padding: 10px;
+            background-color: red;
+        }
+        /*Modifer*/
+        .search__button--disabled:focus{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id ="main">
+        <div class="search">
+            <form class="search__form">
+                <input class="search__input" type="text">
+                <button class="search__button search__button--disabled" type="submit">
+                    送信
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

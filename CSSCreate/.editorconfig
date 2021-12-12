@@ -1,0 +1,17 @@
+# このファイルより上の階層に設定をしない
+root = true
+
+#　対象となるファイルの種類
+[*.css]
+
+# インデントの種類
+indent_style = tab
+
+# インデントの半角スペースの幅
+indent_size = 4
+
+# インデントの改行コード
+end_of_line = crlf
+
+# 文字コード
+charset = utf-8
