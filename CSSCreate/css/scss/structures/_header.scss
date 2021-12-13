@@ -1,5 +1,6 @@
 // 変数
 $_header-topHeight: 39px;
+$_header-md-innerHeight: 50px;
 
 /*st-header*/
 .st-header {
@@ -22,9 +23,12 @@ $_header-topHeight: 39px;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    // max-width: $CONTENT_WIDTH;
+    max-width: $PAGE_MAX_WIDTH;
     margin: 0 auto;
     padding: 0 auto;
+    @include max-screen($BREAK_POINT_MD) {
+        height: rem($_header-md-innerHeight);
+    }
 }
 
 // st-header__infoNav
@@ -49,5 +53,87 @@ $_header-topHeight: 39px;
         > li {
             padding-left: 0;
         }
+    }
+}
+
+//st-header__logo
+.st-header__logo{
+    margin: 0;
+}
+
+.st-header__logo__img{
+    display: block;
+    width: 110px;
+    height: 58px;
+    @include max-screen($BREAK_POINT_MD){
+        width: 55px;
+        height: auto;
+    }
+}
+
+// st-header__navBtn
+.st-header__navBtn {
+    display: none;
+    @include max-screen($BREAK_POINT_MD){
+        align-self: stretch;
+        display: block;
+        cursor: pointer;
+        border-radius: 0;
+        appearance: button;
+        border: none;
+        padding: 0;
+        background: none;
+    }
+}
+
+.st-header__navBtn__icon {
+    @include max-screen($BREAK_POINT_MD){
+        $width: 17px;
+        $height: 2px;
+        $bgColor: #000;
+        position: relative;
+        display: block;
+        width: $width;
+        height: $height;
+        background-color: $bgColor;
+        transition: background-color 0.1s linear;
+        &::before,
+        &::after{
+            content: '';
+            position: absolute;
+            left: 0;
+            display: block;
+            width: $width;
+            height: $height;
+            background-color: $bgColor;
+            transition: transform 0.2s linear;
+        }
+        &::before{
+            top: -5px;
+        }
+        &::after{
+            top: 5px;
+        }
+        &.is-nav-open{
+            background-color: transparent;
+            &::before{
+                top: 50%;
+                transform: rotate(-135deg);
+            }
+            &::after{
+                top: 50%;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+//st-header__nav
+.st-header__nav{
+    @include max-screen($BREAK_POINT_MD) {
+        position: absolute;
+        top: rem($_header-md-innerHeight + 1);
+        left: 0;
+        width: 100%;
     }
 }

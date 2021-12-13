@@ -374,8 +374,15 @@ template {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+  .st-header__inner {
+    height: rem(50px);
+  }
 }
 
 .st-header__infoNav {
@@ -407,6 +414,97 @@ template {
   }
   .st-header__infoNav > li {
     padding-left: 0;
+  }
+}
+
+.st-header__logo {
+  margin: 0;
+}
+
+.st-header__logo__img {
+  display: block;
+  width: 110px;
+  height: 58px;
+}
+
+@media screen and (max-width: 800px) {
+  .st-header__logo__img {
+    width: 55px;
+    height: auto;
+  }
+}
+
+.st-header__navBtn {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .st-header__navBtn {
+    -ms-flex-item-align: stretch;
+        -ms-grid-row-align: stretch;
+        align-self: stretch;
+    display: block;
+    cursor: pointer;
+    border-radius: 0;
+    -webkit-appearance: button;
+       -moz-appearance: button;
+            appearance: button;
+    border: none;
+    padding: 0;
+    background: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .st-header__navBtn__icon {
+    position: relative;
+    display: block;
+    width: 17px;
+    height: 2px;
+    background-color: #000;
+    -webkit-transition: background-color 0.1s linear;
+    transition: background-color 0.1s linear;
+  }
+  .st-header__navBtn__icon::before, .st-header__navBtn__icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 17px;
+    height: 2px;
+    background-color: #000;
+    -webkit-transition: -webkit-transform 0.2s linear;
+    transition: -webkit-transform 0.2s linear;
+    transition: transform 0.2s linear;
+    transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  }
+  .st-header__navBtn__icon::before {
+    top: -5px;
+  }
+  .st-header__navBtn__icon::after {
+    top: 5px;
+  }
+  .st-header__navBtn__icon.is-nav-open {
+    background-color: transparent;
+  }
+  .st-header__navBtn__icon.is-nav-open::before {
+    top: 50%;
+    -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+  }
+  .st-header__navBtn__icon.is-nav-open::after {
+    top: 50%;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .st-header__nav {
+    position: absolute;
+    top: rem(51px);
+    left: 0;
+    width: 100%;
   }
 }
 /*# sourceMappingURL=style.css.map */
