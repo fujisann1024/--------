@@ -1,0 +1,6 @@
+//モジュールの下マージンを打ち消す
+@mixin last-mb0() {
+    > :last-child{
+        margin-bottom: 0;
+    }
+}

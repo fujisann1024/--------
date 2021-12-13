@@ -1,0 +1,12 @@
+//スクリーンの設定
+@mixin max-screen($breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+        @content;
+    }
+}
+//印刷の設定
+@mixin print() {
+    @media print {
+        @content;
+    }
+}

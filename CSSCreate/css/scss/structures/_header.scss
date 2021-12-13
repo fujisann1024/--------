@@ -1,0 +1,53 @@
+// 変数
+$_header-topHeight: 39px;
+
+/*st-header*/
+.st-header {
+    background-color: #000;
+    padding-top: rem($_header-topHeight);
+    border-bottom: 1px solid #ccc;
+    @include max-screen($BREAK_POINT_MD) {
+        padding-top: 10px;
+    }
+}
+
+// st-header__contetn
+.st-header__content {
+    background-color: #fff;
+}
+
+// st-header__inner
+.st-header__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    // max-width: $CONTENT_WIDTH;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+// st-header__infoNav
+.st-header__infoNav{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: -(rem($_header-topHeight));
+    right: 15px;
+    height: rem($_header-topHeight);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    > li {
+        padding-left: 30px;
+    }
+    @include max-screen($BREAK_POINT_MD){
+        display: block;
+        position: static;
+        right: auto;
+        height: auto;
+        > li {
+            padding-left: 0;
+        }
+    }
+}
