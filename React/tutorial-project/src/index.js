@@ -4,6 +4,7 @@ import App from "./App";
 import LoginControl from "./LoginControl";
 import Hello from "./Hello";
 import ListItems from "./ListItem";
+import EventController from "./EventController";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -14,6 +15,8 @@ ReactDOM.render(
         <Hello/>
 
         <ListItems />
+
+        <EventController />
     </React.StrictMode>,
     document.getElementById('root')
 );
