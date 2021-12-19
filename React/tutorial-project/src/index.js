@@ -7,6 +7,7 @@ import ListItems from "./ListItem";
 import EventController from "./EventController";
 import Form from "./Form";
 import SelectForm from "./SelectForm";
+import RadioForm from "./RadioForm";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -23,6 +24,8 @@ ReactDOM.render(
         <Form />
 
         <SelectForm />
+
+        <RadioForm />
     </React.StrictMode>,
     document.getElementById('root')
 );
