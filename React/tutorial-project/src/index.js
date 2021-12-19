@@ -6,6 +6,7 @@ import Hello from "./Hello";
 import ListItems from "./ListItem";
 import EventController from "./EventController";
 import Form from "./Form";
+import SelectForm from "./SelectForm";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -20,6 +21,8 @@ ReactDOM.render(
         <EventController />
 
         <Form />
+
+        <SelectForm />
     </React.StrictMode>,
     document.getElementById('root')
 );
