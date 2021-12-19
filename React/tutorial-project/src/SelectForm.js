@@ -1,7 +1,21 @@
 import React, {useState} from "react";
 
+const values = [
+    {id:1,item:"HTML"},
+    {id:2,item:"CSS"},
+    {id:2,item:"JavaScript"},
+];
+
+const SelectItems = values.map((value) => {
+    return (
+        <option value={value.item} key={value.id}>
+            {value.item}
+        </option>
+    );
+});
+
 const SelectForm  = () => {
-    const [selectedVaue, setSelectedValue] = useState("HTML");
+    const [selectedVaue, setSelectedValue] = useState(values[0]['item']);
 
     const handleChange = (e) => {
         setSelectedValue(e.target.value);
@@ -15,9 +29,7 @@ const SelectForm  = () => {
             </p>
 
             <select value={selectedVaue} onChange={handleChange}>
-                <option value="HTML">HTML</option>
-                <option value="CSS">CSS</option>
-                <option value="JavaScript">JavaScript</option>
+                {SelectItems}
             </select>
         </div>
     );
