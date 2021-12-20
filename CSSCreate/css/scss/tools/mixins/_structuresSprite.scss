@@ -1,0 +1,17 @@
+@mixin st-i-contact($size, $display: inline-block) {
+    content: '';
+    display: $display;
+    width: rem($size * 1);
+    height: rem($size * 1);
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: rem($size * -0.078125) rem($size * -0.078125);
+    background-size: rem($size * 1.15625) rem($size * 2.3125);
+}
+
+@mixin  st-i-contact-size($size) {
+    width: rem($size * 1);
+    height: rem($size * 1);
+    background-position: rem($size * -0.078125) rem($size * -0.078125);
+    background-size: rem($size * 1.15625) rem($size * 2.3125);
+}

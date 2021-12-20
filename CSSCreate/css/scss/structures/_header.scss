@@ -137,3 +137,39 @@ $_header-md-innerHeight: 50px;
         width: 100%;
     }
 }
+
+%st-header__english{
+    @include rem (font-size, 13px);
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin: 0;
+    @include max-screen($BREAK_POINT_MD){
+        @include rem(font-size, 15px);
+        @include rem(height, 54px);
+        display: flex;
+        align-items: center;
+        background-color: #000;
+        border-bottom: 1px solid #404040;
+        padding: 0 15px;
+    }
+}
+
+.st-header__english{
+    @extend %st-header__english;
+}
+
+.st-header__contact {
+    @extend %st-header__english;
+    &::before {
+        @include st-i-contact(26px);
+        margin: 5px;
+        vertical-align: middle;
+    }
+    @include max-screen($_header-breakPoint) {
+        &::before{
+            display: none;
+        }
+    }
+}
+
