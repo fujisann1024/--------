@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log(getTriangl(5,10));let s=new class{constructor(s){this.name=s}show(){return`${this.name}です`}}("山田太郎");console.log(s.show())})();
